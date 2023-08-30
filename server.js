@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
 const knex = require('knex')
 
-const register = require('./controllers/register')
+import handleRegister from "./controllers/register.js";
 const signin = require('./controllers/signin')
 const image = require('./controllers/image')
 const profile = require('./controllers/profile')
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
  
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) })
 
-app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+app.post('/register', (req, res) => { handleRegister(req, res, db, bcrypt) })
 
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
 
