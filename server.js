@@ -4,9 +4,9 @@ import cors from'cors'
 import knex from'knex'
 
 import handleRegister from "./controllers/register.js";
-import handleSignIn from "./controllers/signin";
-import { handleImage, handleApiCall } from './controllers/image';
-import handleProfileGet from './controllers/profile';
+import handleSignIn from "./controllers/signin.js";
+import { handleImage, handleApiCall } from './controllers/image.js';
+import handleProfileGet from './controllers/profile.js';
 
 const db = knex({
     client: 'pg',
