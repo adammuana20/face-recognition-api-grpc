@@ -1,9 +1,9 @@
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
+import {ClarifaiStub, grpc} from "clarifai-nodejs-grpc";
 
 const stub = ClarifaiStub.grpc();
 
 const metadata = new grpc.Metadata();
-metadata.set("authorization", "Key 3d64170bd229429d9f0cab2e8356f7a9");
+metadata.set("authorization", "Key " + process.env.API_CLARIFAI);
 
 const handleApiCall = (req, res) => {
     stub.PostModelOutputs(
@@ -49,7 +49,8 @@ const handleImage = (req, res, db) => {
 
 }
 
-module.exports = {
+
+export default {
     handleImage: handleImage,
     handleApiCall: handleApiCall
 }
