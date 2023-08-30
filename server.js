@@ -5,7 +5,7 @@ import knex from'knex'
 
 import handleRegister from "./controllers/register.js";
 import handleSignIn from "./controllers/signin.js";
-import { handleApiCall, handleImage } from './controllers/image.js';
+import image from './controllers/image.js';
 import handleProfileGet from './controllers/profile.js';
 
 const db = knex({
@@ -33,8 +33,8 @@ app.post('/register', (req, res) => { handleRegister(req, res, db, bcrypt) })
 
 app.get('/profile/:id', (req, res) => { handleProfileGet(req, res, db) })
 
-app.put('/image', (req, res) => { handleImage(req, res, db) })
-app.post('/imageurl', (req, res) => { handleApiCall(req, res) })
+app.put('/image', (req, res) => { image.handleImage(req, res, db) })
+app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
 app.listen(3000, () => {
     console.log('app is running on port 3000');
