@@ -5,7 +5,7 @@ import knex from'knex'
 
 import handleRegister from "./controllers/register.js";
 import handleSignIn from "./controllers/signin.js";
-import { handleImage, handleApiCall } from './controllers/image.js';
+import { handleApiCall, handleImage } from './controllers/image.js';
 import handleProfileGet from './controllers/profile.js';
 
 const db = knex({
