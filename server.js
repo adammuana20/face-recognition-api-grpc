@@ -2,6 +2,7 @@ import express from 'express'
 import bcrypt from'bcrypt-nodejs'
 import cors from'cors'
 import knex from'knex'
+import path from 'path';
 
 import handleRegister from "./controllers/register.js";
 import handleSignIn from "./controllers/signin.js";
@@ -25,10 +26,10 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
-    res.send('It is working')
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
  
 app.post('/signin', (req, res) => { handleSignIn(req, res, db, bcrypt) })
