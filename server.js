@@ -3,10 +3,10 @@ import bcrypt from'bcrypt-nodejs'
 import cors from'cors'
 import knex from'knex'
 
-import handleRegister from "./controllers/register.js";
-import handleSignIn from "./controllers/signin.js";
-import image from './controllers/image.js';
-import handleProfileGet from './controllers/profile.js';
+import handleRegister from "/controllers/register.js";
+import handleSignIn from "/controllers/signin.js";
+import image from '/controllers/image.js';
+import handleProfileGet from '/controllers/profile.js';
 
 const db = knex({
     client: 'pg',
